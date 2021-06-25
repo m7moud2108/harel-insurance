@@ -1,0 +1,21 @@
+{
+    "insuranceType": "CarInsurance",
+    "FirstName": "Israel",
+    "LastName": "Israeli",
+    "insuranceAmountRequested": 500,
+    "insuranceCompanyName": "Harel",
+    "insuranceData": [{
+        "companyUserId": 123,
+        "PrevinsuranceCompanyName": "Migdal",
+        "RequestNumber": 5578,
+        "Previousinsurancenumber": 2435455,
+        "PrevinsuranceID": 47789,
+        "insuranceCompanyfee": 10
+    }],
+    "insuranceEnable": 1,
+    "dateofEnblment": "01082020",
+    "CarStatus": "accident",
+    "UserRank": 4,
+    "comment": "1 low , 2 mid , 3 high , 4 severe",
+    "message": "accident with car Golf in Tel Aviv"
+}

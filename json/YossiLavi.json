@@ -1,0 +1,21 @@
+{
+    "insuranceType": "CarInsurance",
+    "FirstName": "Yossi",
+    "LastName": "Lavi",
+    "insuranceAmountRequested": 322,
+    "insuranceCompanyName": "Harel",
+    "insuranceData": [{
+        "companyUserId": 123,
+        "PrevinsuranceCompanyName": "Migdal",
+        "RequestNumber": 643,
+        "Previousinsurancenumber": 23344,
+        "PrevinsuranceID": 3434,
+        "insuranceCompanyfee": 10
+    }],
+    "insuranceEnable": 1,
+    "dateofEnblment": "01082025",
+    "CarStatus": "New driver",
+    "UserRank": 3,
+    "comment": "1 low , 2 mid , 3 high , 4 severe",
+    "message": "New driver"
+}

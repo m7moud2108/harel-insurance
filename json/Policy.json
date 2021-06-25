@@ -1,0 +1,35 @@
+{
+    "Low": [{
+        "insuranceEnable": 0,
+        "StartInsuranceDate": "01082016",
+        "EndInsuranceDate": "Today",
+        "insuranceCompany": "Harel, Migdal, Menora",
+        "CarStatus": "NoClaims",
+        "UserRank": 1
+    }],
+    "Mid": [{
+        "insuranceEnable": 0,
+        "StartInsuranceDate": "01082016",
+        "EndInsuranceDate": "Today",
+        "insuranceCompany": "Harel, Migdal, Menora",
+        "CarStatus": "new_Driver",
+        "UserRank": 2
+    }],
+    "High": [{
+        "insuranceEnable": 0,
+        "StartInsuranceDate": "01081900",
+        "EndInsuranceDate": "01082016",
+        "insuranceCompany": "Tamir Car insurance",
+        "CarStatus": "NoClaims",
+        "UserRank": 3
+    }],
+    "Severe": [{
+        "insuranceEnable": 1,
+        "StartInsuranceDate": "01082016",
+        "EndInsuranceDate": "Today",
+        "insuranceCompany": "Harel, Migdal, Menora",
+        "CarStatus": "accident",
+        "UserRank": 4
+    }]
+
+}

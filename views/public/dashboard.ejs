@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src *;
+   img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+   style-src  'self' 'unsafe-inline' *">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" integrity="sha512-xnP2tOaCJnzp2d2IqKFcxuOiVCbuessxM6wuiolT9eeEJCyy0Vhcwa4zQvdrZNVqlqaxXhHqsSV1Ww7T2jSCUQ==" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="undefined" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="undefined" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.js"></script>
+    <title>Harel Inurance and Finance</title>
+</head>
+
+<style>
+    body {
+        width: 100vw;
+        height: 100vh;
+        overflow-y: auto;
+        background: url('https://cdn57.androidauthority.net/wp-content/uploads/2015/11/00-best-backgrounds-and-wallpaper-apps-for-android.jpg') top center fixed no-repeat;
+        background-size: cover;
+        margin: 0 auto;
+        text-align: center;
+        overflow-x: hidden;
+    }
+    
+    a {
+        color: #4154f1;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #717ff5;
+        text-decoration: none;
+    }
+    
+    .logo h1 {
+        color: white;
+    }
+    
+    .ins_form label {
+        color: white;
+    }
+    
+    .ins_form input {
+        max-width: 80%;
+    }
+    
+    .ins_form {
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 15px;
+    }
+    
+    .header {
+        transition: all 0.5s;
+        z-index: 997;
+        padding: 20px 0;
+    }
+    
+    .header.header-scrolled {
+        background: rgba(1, 22, 61, 0.9);
+        padding: 15px 0;
+        box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+    }
+    
+    .header .logo img {
+        max-height: 60px;
+        margin-right: 6px;
+    }
+    
+    .header .logo span {
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: aliceblue;
+        font-family: "Nunito", sans-serif;
+        margin-top: 3px;
+    }
+    
+    .navbar {
+        padding: 0;
+    }
+    
+    .navbar ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        align-items: center;
+    }
+    
+    .navbar li {
+        position: relative;
+    }
+    
+    .navbar a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0 10px 30px;
+        font-family: "Nunito", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: aliceblue;
+        white-space: nowrap;
+        transition: 0.3s;
+    }
+    
+    .navbar a i {
+        font-size: 12px;
+        line-height: 0;
+        margin-left: 5px;
+    }
+    
+    .navbar a:hover,
+    .navbar .active,
+    .navbar li:hover>a {
+        color: #4154f1;
+    }
+    
+    .navbar .getstarted {
+        background: #4154f1;
+        padding: 8px 20px;
+        margin-left: 30px;
+        border-radius: 4px;
+        color: #fff;
+    }
+    
+    .navbar .getstarted:hover {
+        color: #fff;
+        background: #5969f3;
+    }
+    
+    .mobile-nav-toggle {
+        color: aliceblue;
+        font-size: 28px;
+        cursor: pointer;
+        display: none;
+        line-height: 0;
+        transition: 0.5s;
+    }
+    
+    .mobile-nav-toggle.bi-x {
+        color: #fff;
+    }
+    
+    @media (max-width: 991px) {
+        .mobile-nav-toggle {
+            display: block;
+        }
+        .navbar ul {
+            display: none;
+        }
+    }
+    
+    .navbar-mobile {
+        position: fixed;
+        overflow: hidden;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: rgba(1, 22, 61, 0.9);
+        transition: 0.3s;
+    }
+    
+    .navbar-mobile .mobile-nav-toggle {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+    
+    .navbar-mobile ul {
+        display: block;
+        position: absolute;
+        top: 55px;
+        right: 15px;
+        bottom: 15px;
+        left: 15px;
+        padding: 10px 0;
+        border-radius: 10px;
+        background-color: #fff;
+        overflow-y: auto;
+        transition: 0.3s;
+    }
+    
+    .navbar-mobile a {
+        padding: 10px 20px;
+        font-size: 15px;
+        color: #012970;
+    }
+    
+    .navbar-mobile a:hover,
+    .navbar-mobile .active,
+    .navbar-mobile li:hover>a {
+        color: #4154f1;
+    }
+    
+    .navbar-mobile .getstarted {
+        margin: 15px;
+    }
+    
+    .navbar-mobile .dropdown ul {
+        position: static;
+        display: none;
+        margin: 10px 20px;
+        padding: 10px 0;
+        z-index: 99;
+        opacity: 1;
+        visibility: visible;
+        background: #fff;
+        box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    }
+    
+    .navbar-mobile .dropdown ul li {
+        min-width: 200px;
+    }
+    
+    .navbar-mobile .dropdown ul a {
+        padding: 10px 20px;
+    }
+    
+    .navbar-mobile .dropdown ul a i {
+        font-size: 12px;
+    }
+    
+    .navbar-mobile .dropdown ul a:hover,
+    .navbar-mobile .dropdown ul .active:hover,
+    .navbar-mobile .dropdown ul li:hover>a {
+        color: #4154f1;
+    }
+    
+    .navbar-mobile .dropdown>.dropdown-active {
+        display: block;
+    }
+    
+    .hero {
+        width: 100%;
+        height: auto;
+    }
+    
+    .hero h1 {
+        margin: 0;
+        font-size: 48px;
+        font-weight: 700;
+        color: #1761e2;
+        margin-right: auto;
+        margin-top: 200px;
+    }
+    
+    .hero h2 {
+        color: aliceblue;
+        margin: 15px 0 0 0;
+        font-size: 26px;
+    }
+    
+    .hero .btn-get-started {
+        margin-top: 30px;
+        line-height: 0;
+        padding: 15px 40px;
+        border-radius: 4px;
+        transition: 0.5s;
+        color: #fff;
+        background: #4154f1;
+        box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+    }
+    
+    .hero .btn-get-started span {
+        font-family: "Nunito", sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+    
+    .hero .btn-get-started i {
+        margin-left: 5px;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+    
+    .hero .btn-get-started:hover i {
+        transform: translateX(5px);
+    }
+    
+    .hero .hero-img {
+        text-align: right;
+    }
+    
+    @media (min-width: 1024px) {
+        .hero {
+            background-attachment: fixed;
+        }
+    }
+    
+    @media (max-width: 991px) {
+        .hero {
+            padding: 10px 0 60px 0;
+        }
+        .hero .hero-img {
+            text-align: center;
+            margin-top: 80px;
+        }
+        .hero .hero-img img {
+            width: 80%;
+        }
+        .hero h1 {
+            margin-top: 50px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .hero {
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 32px;
+        }
+        .hero h2 {
+            font-size: 24px;
+        }
+        .hero .hero-img img {
+            width: 100%;
+        }
+        .footer .footer-top .footer-links i {
+            margin-left: 50px;
+        }
+    }
+    
+    .register-wrap {
+        background-color: rgba(255, 255, 255, 0.8);
+        width: 100%;
+        height: auto;
+        margin-top: 5vh;
+        border-radius: 20px;
+        text-align: center;
+        padding-bottom: 40px;
+    }
+    
+    .register-wrap select {
+        background-color: white;
+    }
+    
+    .chart {
+        display: none;
+    }
+    
+    .tblBtn {
+        display: none;
+    }
+    
+    .first th {
+        padding: 15px;
+    }
+    
+    th div {
+        padding: 5px;
+        border-radius: 5px;
+    }
+    
+    th {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+    /* Modal Content */
+    
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+    /* The Close Button */
+    
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .modal-content a {
+        color: gray;
+        font-size: 20px;
+        text-decoration: none;
+    }
+    
+    .modal-content a:hover {
+        color: lightgray;
+    }
+    
+    .modal-content a.active {
+        color: #4154f1;
+    }
+</style>
+
+<body>
+
+    <header id="header" class="header">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+            <a class="logo d-flex align-items-center">
+                <span class="logo d-flex align-items-center">HAREL INSURANCE</span>
+            </a>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link" href="/">New Insurance</a></li>
+                    <li><a class="nav-link active" href="/dashboard">Dashboard</a></li>
+                    <li>
+                        <form action="/sign-in" method="POST"><button type="submit" class="btn btn-primary" style="margin-left: 20px;margin-right: 20px;">Sign out!</button></form>
+                    </li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle" id="myBtn"></i>
+            </nav>
+            <!-- .navbar -->
+
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+
+                    <a class="nav-link" href="/">New Insurance</a>
+                    <a class="nav-link active" href="/dashboard">Dashboard</a>
+                    <form action="/sign-in" method="POST"><button style="background: none; border: none;" type="submit"><a class="getstarted">Sign Out!</a></button></form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+
+    <section id="hero" class="hero d-flex align-items-center">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-2 col-sm-1"></div>
+                <div class=" register-wrap col-lg-6 col-md-8 col-sm-10 flex-column justify-content-center"><br>
+
+                    <div id="addteam">
+                        <h2 style="color: black; text-align: center; font-weight: bold;">Dashboard</h2><br>
+                        <%
+                                if(person != 'yes'){
+                            %>
+                            <button id="chartBtn" style="float:right" class="btn btn-success chartBtn" onclick="chart()">View Chart</button>
+                            <button id="tblBtn" style="float:right" class="btn btn-success tblBtn" onclick="tbl()">View Table</button><br><br>
+                            <div id="table" class="table" class="table mt-4" style="overflow-x: auto;">
+
+                                <table class="col-md-12" style="overflow-x: auto;">
+                                    <tr class="bg-light first">
+                                        <th>SEVERITY</th>
+                                        <th>CATEGORY</th>
+                                        <th>NAME</th>
+                                        <th>AMOUNT</th>
+                                        <th>STATUS</th>
+                                        <th>DETAILS</th>
+                                    </tr>
+
+                                    <%
+                                        i=1;
+                                        userData.forEach(function(data){
+                                    %>
+
+                                        <% if(data.status == 'In Review'){ %>
+
+                                            <tr>
+
+                                                <th>
+                                                    <div style="background-color: rgba(128, 128, 128, 0.678);">&ThickSpace;&ThickSpace;&ThickSpace;&ThickSpace;</div>
+                                                </th>
+                                                <td>Car Insurance</td>
+                                                <td>
+                                                    <%=data.first_name + ' ' + data.last_name %>
+                                                </td>
+                                                <td>
+                                                    <%='$'+data.insurance_amount %>
+                                                </td>
+                                                <td>
+                                                    <%=data.status %>
+                                                </td>
+
+                                                <td>
+                                                    <form action="/calculate" method="POST">
+                                                        <input style="display: none;" type="text" value="<%=data.first_name+data.last_name %>" name="user_name">
+                                                        <input style="display: none;" type="number" value="<%=data.ID %>" name="user_id">
+                                                        <button type="submit" class="btn btn-success">Calculate</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+
+                                            <% }else if(data.status == 'Reviewed'){ %>
+
+                                                <tr>
+                                                    <% if(data.severity == 'severe'){ %>
+                                                        <th>
+                                                            <div class="severe" class="col-12" style="background-color: rgba(255, 0, 0, 0.2); color: red;">SEVERE</div>
+                                                        </th>
+                                                        <% }else if(data.severity == 'high'){ %>
+                                                            <th>
+                                                                <div class="high" style="background-color: rgba(246, 60, 60, 0.2); color: rgb(255, 94, 0);">HIGH</div>
+                                                            </th>
+                                                            <% }else if(data.severity == 'medium'){ %>
+                                                                <th>
+                                                                    <div class="medium" style="background-color: rgba(255, 94, 0, 0.26); color: rgb(255, 136, 0);">MEDIUM</div>
+                                                                </th>
+                                                                <% }else if(data.severity == 'low'){ %>
+                                                                    <th>
+                                                                        <div class="low" style="background-color: rgba(65, 65, 65, 0.2); color: rgb(109, 96, 96);">LOW</div>
+                                                                    </th>
+                                                                    <% } %>
+                                                                        <td>Car Insurance</td>
+                                                                        <td>
+                                                                            <%=data.first_name + ' ' + data.last_name %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%='$'+data.insurance_amount %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%=data.status %>
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <form action="/details" method="POST">
+                                                                                <input style="display: none;" type="number" value="<%=data.ID %>" name="user_id">
+                                                                                <button style="background-color: lightgray;" type="submit" class="btn btn-light">Details</button>
+                                                                            </form>
+                                                                        </td>
+                                                </tr>
+
+                                                <% } %>
+
+                                                    <%  i++; }) %>
+                                </table>
+
+
+
+                            </div>
+
+                            <div id="chart" class="chart">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-3"></div>
+                                    <div class="col-lg-4 col-md-6"><canvas id="myChart">
+                                        
+                                    </canvas></div>
+                                </div>
+
+                                <script>
+                                    var ctx = document.getElementById('myChart').getContext('2d');
+
+                                    var myChart = new Chart(ctx, {
+                                        type: 'doughnut',
+                                        data: {
+                                            labels: ['Severe', 'High', 'Medium', 'Low'],
+                                            datasets: [{
+                                                data: [
+                                                    $('.severe').length,
+                                                    $('.high').length,
+                                                    $('.medium').length,
+                                                    $('.low').length
+                                                ],
+                                                backgroundColor: [
+                                                    'rgba(255, 0, 0, 0.5)',
+                                                    'rgba(255, 99, 132, 0.5)',
+                                                    'rgba(255, 206, 86, 0.5)',
+                                                    'rgba(65, 65, 65, 0.5)'
+                                                ],
+                                                borderColor: [
+                                                    'rgba(255, 0, 0, 1)',
+                                                    'rgba(255, 99, 132, 1)',
+                                                    'rgba(255, 206, 86, 1)',
+                                                    'rgba(65, 65, 65, 1)'
+                                                ],
+                                                borderWidth: 1
+                                            }]
+                                        }
+                                    });
+                                </script>
+                            </div>
+                            <% } else { %>
+                                <form method="POST" action="/back">
+                                    <button type="submit" style="float:left" class="btn btn-success">Back</button>
+                                </form>
+
+                                <%
+                                        i=1
+                                        userData.forEach(function(data){
+                                    %>
+
+                                    <p style="font-size: 25px; float:right">
+                                        <%=data.first_name + ' ' + data.last_name%>
+
+                                            <% if(data.severity == 'severe'){ %>
+
+                                                <span style="background-color: rgba(255, 0, 0, 0.2); color: red; padding: 5px; border-radius: 5px;font-size: 20px;"><b>SEVERE</b></span>
+
+                                                <% }else if(data.severity == 'high'){ %>
+
+                                                    <span style="background-color: rgba(246, 60, 60, 0.2); color: rgb(255, 94, 0); padding: 5px; border-radius: 5px;font-size: 20px;"><b>HIGH</b></span>
+
+                                                    <% }else if(data.severity == 'medium'){ %>
+
+                                                        <span style="background-color: rgba(255, 94, 0, 0.26); color: rgb(255, 136, 0); padding: 5px; border-radius: 5px;font-size: 20px;"><b>MEDIUM</b></span>
+
+                                                        <% }else if(data.severity == 'low'){ %>
+
+                                                            <span style="background-color: rgba(65, 65, 65, 0.2); color: rgb(109, 96, 96); padding: 5px; border-radius: 5px;font-size: 20px;"><b>LOW</b></span>
+
+                                                            <% } %>
+                                    </p><br><br><br><br>
+                                    <div class="col-md-12 row" style="text-align: left; margin-left: 20px;">
+
+                                        <p class="col-lg-4 col-md-6 col-12">
+                                            <b>Social Number:</b>
+                                            <%=data.social_num%>
+                                        </p>
+                                        <p class="col-lg-4 col-md-6 col-12">
+                                            <b>Email Address:</b>
+                                            <%=data.email%>
+                                        </p>
+                                        <p class="col-lg-4 col-md-6 col-12">
+                                            <b>Phone Number:</b>
+                                            <%=data.phone%>
+                                        </p>
+                                        <p class="col-lg-4 col-md-6 col-12">
+                                            <b>Amount Requested:</b>
+                                            <%='$'+data.insurance_amount%>
+                                        </p>
+                                        <p class="col-lg-4 col-md-6 col-12">
+                                            <b>Previous Insurance Number:</b>
+                                            <%=data.insurance_num%>
+                                        </p>
+                                        <p class="col-lg-4 col-md-6 col-12">
+                                            <b>Previous Insurance ID:</b>
+                                            <%=data.insurance_id%>
+                                        </p>
+                                        <p class="col-lg-4 col-md-6 col-12">
+                                            <b>Previous Insurance Company:</b>
+                                            <%=data.insurance_company%>
+                                        </p>
+                                        <p class="col-lg-4 col-md-6 col-12">
+                                            <b>Request Number:</b>
+                                            <%=data.request%>
+                                        </p>
+                                        <p class="col-lg-4 col-md-6 col-12">
+                                            <b>Insurance Fee:</b>
+                                            <%='$'+data.fee%>
+                                        </p>
+                                        <p class="col-lg-4 col-md-6 col-12">
+                                            <b>Insurance Enable:</b>
+                                            <%=data.ins_enable%>
+                                        </p>
+                                        <p class="col-lg-4 col-md-6 col-12">
+                                            <b>Date Enable:</b>
+                                            <%=data.date_enable%>
+                                        </p>
+                                        <p class="col-lg-4 col-md-6 col-12">
+                                            <b>Car Status:</b>
+                                            <%=data.car_status%>
+                                        </p>
+                                        <p class="col-lg-4 col-md-6 col-12">
+                                            <b>Reason:</b>
+                                            <%=data.message%>
+                                        </p>
+                                    </div>
+
+
+
+                                    <% i++ })
+                                } %>
+
+
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-2 col-sm-1">
+                        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+    <script>
+        function chart() {
+            document.getElementById('tblBtn').style.display = 'block';
+            document.getElementById('chartBtn').style.display = 'none';
+            document.getElementById('chart').style.display = 'block';
+            document.getElementById('table').style.display = 'none';
+        }
+
+        function tbl() {
+            document.getElementById('chartBtn').style.display = 'block';
+            document.getElementById('tblBtn').style.display = 'none';
+            document.getElementById('table').style.display = 'block';
+            document.getElementById('chart').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
